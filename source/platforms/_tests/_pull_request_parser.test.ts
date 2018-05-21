@@ -27,6 +27,13 @@ describe("parsing urls", () => {
     })
   })
 
+  it("handles bitbucket server PRs when repo name has dashes", () => {
+    expect(pullRequestParser("http://localhost:7990/projects/PROJ/repos/repo-name/pull-requests/1")).toEqual({
+      pullRequestNumber: "1",
+      repo: "projects/PROJ/repos/repo-name",
+    })
+  })
+
   it("handles bitbucket server PRs (overview)", () => {
     expect(pullRequestParser("http://localhost:7990/projects/PROJ/repos/repo/pull-requests/1/overview")).toEqual({
       pullRequestNumber: "1",

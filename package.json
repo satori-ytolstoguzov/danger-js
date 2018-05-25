@@ -44,6 +44,7 @@
     "test:watch": "jest --watch",
     "lint": "tslint \"source/**/*.ts\"",
     "lint:fix": "tslint \"source/**/*.ts\" --fix",
+    "preinstall": "yarn build && yarn declarations && yarn build:flow-types && yarn build:pretty-types",
     "prepublishOnly": "yarn build && yarn declarations && yarn build:flow-types && yarn build:pretty-types",
     "build": "shx rm -rf ./distribution && tsc -p tsconfig.production.json && madge ./distribution --circular",
     "build:fast": "tsc -p tsconfig.production.json",
